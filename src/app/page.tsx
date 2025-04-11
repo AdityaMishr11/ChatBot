@@ -171,7 +171,7 @@ export default function Home() {
             <ScrollArea className="flex-1 h-full px-4">
               <div className="flex flex-col gap-2 py-4">
                 {messages.map((message, index) => (
-                  <div key={message.id} className={`flex items-end ${message.sender === 'User' ? 'justify-end' : 'justify-start'}`}>
+                  <div key={message.id} className={`flex items-start ${message.sender === 'User' ? 'justify-end' : 'justify-start'}`}>
                     {message.sender === 'AI' && (
                       <Avatar className="w-8 h-8 mr-2">
                         <AvatarImage src={mockAiAvatar} alt="AI Avatar" />
@@ -179,10 +179,13 @@ export default function Home() {
                       </Avatar>
                     )}
                     <div className={cn(
-                      "rounded-md py-2 px-3 text-sm max-w-[75%]",
-                      message.sender === 'User' ? 'bg-primary text-primary-foreground' : 'bg-secondary text-foreground',
+                      "rounded-xl py-2 px-3 text-sm max-w-[75%] break-words",
+                      message.sender === 'User'
+                        ? 'bg-[hsl(var(--message-user-bg))] text-[hsl(var(--message-user-text))]'
+                        : 'bg-[hsl(var(--message-ai-bg))] text-[hsl(var(--message-ai-text))]',
+                      'shadow-[var(--message-box-shadow)]' // Apply the box-shadow
                     )}>
-                      <p className="text-sm break-words">{message.content}</p>
+                      <p className="text-sm">{message.content}</p>
                       <div className="flex items-center justify-end text-xs mt-1">
                         <span className="text-muted-foreground">{message.timestamp}</span>
                         {message.sender === 'User' && message.status && getMessageStatusIcon(message.status)}
@@ -209,7 +212,7 @@ export default function Home() {
                   value={input}
                   onChange={handleInputChange}
                   onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } }}
-                  placeholder="Enter your message..."
+                  placeholder="Type a message..."
                   className="w-full rounded-md pr-12 resize-none"
                 />
                 <Button
