@@ -150,7 +150,7 @@ export default function Home() {
                 <AvatarImage src={mockUserAvatar} alt="User Avatar" />
                 <AvatarFallback>U</AvatarFallback>
               </Avatar>
-              <h1 className="text-xl font-semibold">EduChat AI</h1>
+              <h1 className="text-xl font-semibold">Adi's Chatbot</h1>
             </div>
             <div className="space-x-2 flex items-center">
               {isDarkMode ? (
@@ -225,7 +225,7 @@ export default function Home() {
                 <Button
                   onClick={sendMessage}
                   disabled={isTyping}
-                  className="absolute right-2 top-1/2 transform -translate-y-1/2 rounded-full p-2"
+                  className="absolute right-2 top-1/4 transform -translate-y-1/2 rounded-full p-2"
                 >
                   <Icons.arrowRight className="h-4 w-4" />
                   <span className="sr-only">Send</span>
