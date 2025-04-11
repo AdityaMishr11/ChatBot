@@ -117,7 +117,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
       <div className="flex flex-col rounded-lg shadow-lg overflow-hidden w-3/4 h-screen">
         <Card className="rounded-lg">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 pt-3">
