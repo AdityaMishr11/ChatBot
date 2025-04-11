@@ -31,6 +31,23 @@ const formatTimestamp = (date: Date): string => {
   return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 };
 
+const TypingIndicator = () => {
+  return (
+    <div className="flex items-center">
+      <Avatar className="w-8 h-8 mr-2">
+        <AvatarImage src={mockAiAvatar} alt="AI Avatar" />
+        <AvatarFallback>AI</AvatarFallback>
+      </Avatar>
+      <div className="typing-dots">
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+      </div>
+    </div>
+  );
+};
+
+
 export default function Home() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
@@ -129,11 +146,22 @@ export default function Home() {
                 <h1 className="text-xl font-semibold">EduChat AI</h1>
               </div>
             <div className="space-x-2 flex items-center">
-              {isDarkMode ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
-              <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={toggleDarkMode} >
-                 
-              </Switch>
-             
+                {isDarkMode ? (
+                  <>
+                    <Moon className="h-4 w-4" />
+                    <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={toggleDarkMode}>
+                      <Moon className="h-4 w-4" />
+                    </Switch>
+                  </>
+                ) : (
+                  <>
+                    <Sun className="h-4 w-4" />
+                    <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={toggleDarkMode}>
+                      <Sun className="h-4 w-4" />
+                    </Switch>
+                  </>
+                )}
+               
             </div>
           </CardHeader>
         </Card>
@@ -169,9 +197,7 @@ export default function Home() {
                   </div>
                 ))}
                 {isTyping && (
-                  <div className="text-left italic">
-                    AI is typing...
-                  </div>
+                  <TypingIndicator />
                 )}
                 <div ref={chatBottomRef} />
               </div>
