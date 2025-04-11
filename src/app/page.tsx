@@ -128,10 +128,10 @@ export default function Home() {
                 </Avatar>
                 <h1 className="text-xl font-semibold">EduChat AI</h1>
               </div>
-            <div className="space-x-2">
-              
+            <div className="space-x-2 flex items-center">
+              {isDarkMode ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
               <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={toggleDarkMode} >
-                 {isDarkMode ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+                 
               </Switch>
              
             </div>
@@ -205,4 +205,3 @@ export default function Home() {
     </div>
   );
 }
-
