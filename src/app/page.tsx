@@ -118,7 +118,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="flex flex-col rounded-lg shadow-lg overflow-hidden w-3/4 h-screen">
-        <Card className="mb-4 rounded-none">
+        <Card className="rounded-none">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 pt-4">
             <h1 className="text-xl font-semibold">EduChat AI</h1>
             <div className="space-x-2">
