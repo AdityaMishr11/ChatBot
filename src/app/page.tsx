@@ -118,8 +118,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
       <div className="flex flex-col rounded-lg shadow-lg overflow-hidden w-3/4 h-screen">
-        <Card className="rounded-none">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2 pt-4">
+        <Card className="rounded-lg">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 pt-3">
             <h1 className="text-xl font-semibold">EduChat AI</h1>
             <div className="space-x-2">
               <Icons.sun className="h-4 w-4" />
@@ -129,7 +129,7 @@ export default function Home() {
           </CardHeader>
         </Card>
 
-        <Card className="flex-1 overflow-hidden rounded-none">
+        <Card className="flex-1 overflow-hidden rounded-lg">
           <CardContent className="h-full flex flex-col p-0">
             <ScrollArea className="flex-1 h-full px-4">
               <div className="flex flex-col gap-2 py-4">
@@ -177,7 +177,7 @@ export default function Home() {
                   placeholder="Enter your message..."
                   className="w-full rounded-md pr-12 resize-none"
                 />
-                <Button
+                 <Button
                   onClick={sendMessage}
                   disabled={isTyping}
                   className="absolute right-2 top-1/2 transform -translate-y-1/2 rounded-full p-2"
