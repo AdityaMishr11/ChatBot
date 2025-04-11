@@ -14,6 +14,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { cn } from "@/lib/utils";
 import { v4 as uuidv4 } from 'uuid'; // Import UUID
 import './global.css';
+import { Sun, Moon } from 'lucide-react';
 
 const mockUserAvatar = 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Callie';
 const mockAiAvatar = 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Snowball';
@@ -120,11 +121,19 @@ export default function Home() {
       <div className="flex flex-col rounded-lg shadow-lg overflow-hidden w-3/4 h-screen">
         <Card className="rounded-lg">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 pt-3">
-            <h1 className="text-xl font-semibold">EduChat AI</h1>
+             <div className="flex items-center">
+                <Avatar className="w-8 h-8 mr-2">
+                  <AvatarImage src={mockUserAvatar} alt="User Avatar" />
+                  <AvatarFallback>U</AvatarFallback>
+                </Avatar>
+                <h1 className="text-xl font-semibold">EduChat AI</h1>
+              </div>
             <div className="space-x-2">
-              <Icons.sun className="h-4 w-4" />
-              <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={toggleDarkMode} />
-              <Icons.moon className="h-4 w-4" />
+              
+              <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={toggleDarkMode} >
+                 {isDarkMode ? <Moon className="h-4 w-4" /> : <Sun className="h-4 w-4" />}
+              </Switch>
+             
             </div>
           </CardHeader>
         </Card>
@@ -154,7 +163,7 @@ export default function Home() {
                     {message.sender === 'User' && (
                       <Avatar className="w-8 h-8 ml-2">
                         <AvatarImage src={mockUserAvatar} alt="User Avatar" />
-                        <AvatarFallback>User</AvatarFallback>
+                        <AvatarFallback>U</AvatarFallback>
                       </Avatar>
                     )}
                   </div>
@@ -177,7 +186,7 @@ export default function Home() {
                   placeholder="Enter your message..."
                   className="w-full rounded-md pr-12 resize-none"
                 />
-                 <Button
+                <Button
                   onClick={sendMessage}
                   disabled={isTyping}
                   className="absolute right-2 top-1/2 transform -translate-y-1/2 rounded-full p-2"
