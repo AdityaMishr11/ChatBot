@@ -169,7 +169,7 @@ export default function Home() {
             </ScrollArea>
 
             <div className="p-4 pt-2 border-t">
-              <div className="relative">
+              <div className="relative flex items-center">
                 <Textarea
                   value={input}
                   onChange={handleInputChange}
@@ -177,14 +177,17 @@ export default function Home() {
                   placeholder="Enter your message..."
                   className="w-full rounded-md pr-12 resize-none"
                 />
+                <Button
+                  onClick={sendMessage}
+                  disabled={isTyping}
+                  className="absolute right-2 top-1/2 transform -translate-y-1/2 rounded-full p-2"
+                >
+                  <Icons.arrowRight className="h-4 w-4" />
+                  <span className="sr-only">Send</span>
+                </Button>
                 <span className="absolute right-3 bottom-3 text-xs text-muted-foreground">
                   {characterCount}/{maxInputLength}
                 </span>
-              </div>
-              <div className="flex justify-between items-center mt-2">
-                <Button onClick={sendMessage} disabled={isTyping} className="ml-auto">
-                  Send
-                </Button>
               </div>
             </div>
           </CardContent>
