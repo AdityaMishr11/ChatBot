@@ -134,39 +134,46 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-10">
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-10"
+         style={{
+           backgroundImage: `url(https://wallpapers.com/images/hd/4k-mobile-phone-sea-background-g39lt1tf04y4y808.jpg)`,
+           backgroundSize: 'cover',
+           backgroundPosition: 'center',
+           minHeight: '100vh',
+         }}
+    >
       <div className="flex flex-col rounded-lg shadow-lg overflow-hidden w-3/4 h-screen">
-        <Card className="rounded-lg">
+        <Card className="rounded-lg glassmorphism"> {/* Added glassmorphism */}
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3 pt-3">
-             <div className="flex items-center">
-                <Avatar className="w-8 h-8 mr-2">
-                  <AvatarImage src={mockUserAvatar} alt="User Avatar" />
-                  <AvatarFallback>U</AvatarFallback>
-                </Avatar>
-                <h1 className="text-xl font-semibold">EduChat AI</h1>
-              </div>
+            <div className="flex items-center">
+              <Avatar className="w-8 h-8 mr-2">
+                <AvatarImage src={mockUserAvatar} alt="User Avatar" />
+                <AvatarFallback>U</AvatarFallback>
+              </Avatar>
+              <h1 className="text-xl font-semibold">EduChat AI</h1>
+            </div>
             <div className="space-x-2 flex items-center">
-                {isDarkMode ? (
-                  <>
+              {isDarkMode ? (
+                <>
+                  <Moon className="h-4 w-4" />
+                  <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={toggleDarkMode}>
                     <Moon className="h-4 w-4" />
-                    <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={toggleDarkMode}>
-                      <Moon className="h-4 w-4" />
-                    </Switch>
-                  </>
-                ) : (
-                  <>
+                  </Switch>
+                </>
+              ) : (
+                <>
+                  <Sun className="h-4 w-4" />
+                  <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={toggleDarkMode}>
                     <Sun className="h-4 w-4" />
-                    <Switch id="dark-mode" checked={isDarkMode} onCheckedChange={toggleDarkMode}>
-                      <Sun className="h-4 w-4" />
-                    </Switch>
-                  </>
-                )}
-               
+                  </Switch>
+                </>
+              )}
+
             </div>
           </CardHeader>
         </Card>
 
-        <Card className="flex-1 overflow-hidden rounded-lg">
+        <Card className="flex-1 overflow-hidden rounded-lg glassmorphism shadow-xl"> {/* Added glassmorphism */}
           <CardContent className="h-full flex flex-col p-0">
             <ScrollArea className="flex-1 h-full px-4">
               <div className="flex flex-col gap-2 py-4">
@@ -183,7 +190,7 @@ export default function Home() {
                       message.sender === 'User'
                         ? 'bg-[hsl(var(--message-user-bg))] text-[hsl(var(--message-user-text))]'
                         : 'bg-[hsl(var(--message-ai-bg))] text-[hsl(var(--message-ai-text))]',
-                      'shadow-[var(--message-box-shadow)]' // Apply the box-shadow
+                      'shadow-[var(--message-box-shadow)] glassmorphism' // Apply the box-shadow
                     )}>
                       <p className="text-sm">{message.content}</p>
                       <div className="flex items-center justify-end text-xs mt-1">
@@ -213,7 +220,7 @@ export default function Home() {
                   onChange={handleInputChange}
                   onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } }}
                   placeholder="Type a message..."
-                  className="w-full rounded-md pr-12 resize-none"
+                  className="w-full rounded-md pr-12 resize-none glassmorphism"
                 />
                 <Button
                   onClick={sendMessage}
