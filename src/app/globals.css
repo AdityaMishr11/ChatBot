@@ -49,24 +49,24 @@ body {
     --message-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
   }
   .dark {
-    --background: 240 10% 3.9%;
+    --background: hsl(0, 0%, 24.7%);  /* #3f3f3f */
     --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
+    --card: hsl(0, 0%, 24.7%); /* #3f3f3f */
     --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
+    --popover: hsl(0, 0%, 24.7%); /* #3f3f3f */
     --popover-foreground: 0 0% 98%;
     --primary: 197 71% 91%;
     --primary-foreground: 220 14.3% 46.1%;
-    --secondary: 0 0% 14.9%;
+    --secondary: hsl(0, 0%, 94.5%); /* #f1f1f1 close to white */
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
+    --muted: hsl(0, 0%, 94.5%); /* #f1f1f1 close to white */
     --muted-foreground: 220 8.9% 63.9%;
     --accent: 180 100% 25%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
+    --border: hsl(0, 0%, 54.5%); /* #8b8b8b */
+    --input: hsl(0, 0%, 54.5%); /* #8b8b8b */
     --ring: 0 0% 83.1%;
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
@@ -82,11 +82,11 @@ body {
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
 
-    --message-user-bg: 197 71% 91%;
-    --message-ai-bg: 0 0% 20%;
-    --message-user-text: 220 14.3% 46.1%;
+    --message-user-bg:  hsl(0, 0%, 44.3%); /* #717171 */
+    --message-ai-bg: hsl(0, 0%, 34.1%); /* #575757 */
+    --message-user-text: 0 0% 98%;
     --message-ai-text: 0 0% 98%;
-    --message-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3); /* Dark mode shadow */
+    --message-box-shadow: 0 3px 7px hsl(0, 0%, 54.5%, 0.3); /* Dark mode shadow */
   }
 }
 
@@ -110,7 +110,8 @@ body {
 
 .dark .glassmorphism {
   background: rgba(0, 0, 0, 0.2); /* Dark glassmorphism */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Increased shadow for dark mode */
+  box-shadow: 0 5px 15px hsl(0, 0%, 54.5%, 0.3); /* Increased shadow for dark mode */
   border: 1px solid rgba(0, 0, 0, 0.4);
 }
+
 
