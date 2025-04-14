@@ -15,7 +15,6 @@ import { cn } from "@/lib/utils";
 import { v4 as uuidv4 } from 'uuid'; // Import UUID
 import './global.css';
 import { Sun, Moon } from 'lucide-react';
-import { Mic } from 'lucide-react'; // Import Mic icon
 
 const mockUserAvatar = 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Callie';
 const mockAiAvatar = 'https://api.dicebear.com/7.x/pixel-art/svg?seed=Snowball';
@@ -58,7 +57,6 @@ export default function Home() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [characterCount, setCharacterCount] = useState(0);
   const maxInputLength = 500;
-  const [isRecording, setIsRecording] = useState(false); // State for recording status
 
   useEffect(() => {
     // Scroll to bottom on new messages
@@ -135,28 +133,8 @@ export default function Home() {
     }
   };
 
-  // Placeholder function for recording audio
-  const recordAudio = () => {
-    setIsRecording(prevState => !prevState);
-    if (!isRecording) {
-      // Start recording logic here
-      console.log("Recording started");
-      toast({
-        title: "Recording",
-        description: "Recording audio... Tap again to stop.",
-      });
-    } else {
-      // Stop recording logic here
-      console.log("Recording stopped");
-      toast({
-        title: "Recording Stopped",
-        description: "Audio recorded and processing...",
-      });
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-10"
+    <div className="min-h-screen flex items-center justify-center p-10"
          style={{
            backgroundImage: `url(https://wallpapers.com/images/hd/4k-mobile-phone-sea-background-g39lt1tf04y4y808.jpg)`,
            backgroundSize: 'cover',
@@ -255,17 +233,7 @@ export default function Home() {
                 <span className="absolute right-3 bottom-3 text-xs text-muted-foreground">
                   {characterCount}/{maxInputLength}
                 </span>
-                {/* Voice Chat Button */}
-                <Button
-                  onClick={recordAudio}
-                  className="ml-2"
-                  disabled={isTyping}
-                >
-                  <Mic className="h-4 w-4" />
-                  <span className="sr-only">Voice Chat</span>
-                </Button>
               </div>
-              {isRecording && <p className="text-sm text-muted-foreground mt-1">Recording...</p>}
             </div>
           </CardContent>
         </Card>
